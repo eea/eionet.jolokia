@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<restrict>
+ <remote>
+<!-- Internal -->
+    <host>127.0.0.1</host>
+    <host>10.92.25.0/24</host>
+<!-- External cloud -->
+    <host>127.0.0.1</host>
+    <host>10.9.3.2/24</host>
+    <host>212.130.111.114/29</host>
+  </remote>
+</restrict>
