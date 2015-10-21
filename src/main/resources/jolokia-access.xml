@@ -1,7 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <restrict>
+ <!-- Syntax: https://jolokia.org/reference/html/security.html -->
  <remote>
 <!-- Internal -->
+    <host>reverseproxy</host>
     <host>127.0.0.1</host>
     <host>10.92.25.0/24</host>
 <!-- External cloud -->
@@ -9,4 +11,20 @@
     <host>10.9.3.2/24</host>
     <host>212.130.111.114/29</host>
   </remote>
+
+  <commands>
+    <command>read</command>
+    <command>list</command>
+    <command>version</command>
+    <command>search</command>
+  </commands>
+
+  <deny>
+    <mbean>
+      <!-- Exposes user/password of data source, so we forbid this one -->
+      <name>com.mchange.v2.c3p0:type=PooledDataSource,*</name>
+      <attribute>properties</attribute>
+    </mbean>
+  </deny>
+
 </restrict>
